@@ -1,0 +1,9 @@
+{
+	"id": "sample-plugin",
+	"name": "タスクボード",
+	"version": "1.3.0",
+	"minAppVersion": "1.7.2",
+	"description": "案件・優先度・期日・開始日つきのカンバン方式タスク管理ボードとガントチャート（自作）",
+	"author": "takahiro.konishi",
+	"isDesktopOnly": false
+}

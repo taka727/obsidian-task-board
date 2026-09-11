@@ -1,0 +1,796 @@
+.task-board-container {
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+	padding: 12px;
+	height: 100%;
+}
+
+.task-board-filter-bar {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	flex-wrap: wrap;
+}
+
+.task-board-filter-select {
+	font-size: 12px;
+}
+
+.task-board-filter-priority-group {
+	display: flex;
+	gap: 4px;
+}
+
+.task-board-filter-priority-btn {
+	font-size: 11px;
+	padding: 1px 8px;
+	border-radius: 10px;
+	opacity: 0.4;
+}
+
+.task-board-filter-priority-btn.is-active {
+	opacity: 1;
+}
+
+.task-board-filter-clear {
+	font-size: 12px;
+	color: var(--text-muted);
+}
+
+.task-board-columns {
+	display: flex;
+	gap: 12px;
+	flex: 1;
+	min-height: 0;
+	overflow-x: auto;
+}
+
+.task-board-column {
+	background: var(--background-secondary);
+	border-radius: 8px;
+	padding: 8px;
+	min-width: 240px;
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	max-height: 100%;
+}
+
+.task-board-column.is-drag-over {
+	outline: 2px dashed var(--interactive-accent);
+}
+
+.task-board-column-header {
+	font-weight: 600;
+	margin-bottom: 8px;
+	padding: 0 4px;
+}
+
+.task-board-cards {
+	flex: 1;
+	overflow-y: auto;
+	display: flex;
+	flex-direction: column;
+	gap: 6px;
+}
+
+.task-board-done-archive-summary {
+	font-size: 11px;
+	color: var(--text-muted);
+	padding: 2px 4px;
+	list-style: none;
+	cursor: pointer;
+	user-select: none;
+}
+
+.task-board-done-archive-summary::-webkit-details-marker {
+	display: none;
+}
+
+.task-board-done-archive-summary::before {
+	content: '\25B8';
+	display: inline-block;
+	width: 10px;
+}
+
+.task-board-done-archive[open] > .task-board-done-archive-summary::before {
+	content: '\25BE';
+}
+
+.task-board-done-archive-cards {
+	display: flex;
+	flex-direction: column;
+	gap: 6px;
+	margin-top: 6px;
+}
+
+.task-board-card {
+	background: var(--background-primary);
+	border: 1px solid var(--background-modifier-border);
+	border-left: 4px solid transparent;
+	border-radius: 6px;
+	padding: 8px;
+	cursor: grab;
+}
+
+.task-board-card.is-dragging {
+	opacity: 0.4;
+}
+
+.task-board-card.is-due-soon {
+	border-left-color: var(--color-orange);
+}
+
+.task-board-card.is-overdue {
+	border-left-color: var(--color-red);
+}
+
+.task-board-card-badges {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 4px;
+	margin-bottom: 6px;
+}
+
+.task-board-badge {
+	font-size: 11px;
+	line-height: 1.6;
+	padding: 1px 6px;
+	border-radius: 10px;
+	background: var(--background-modifier-border);
+	color: var(--text-muted);
+	white-space: nowrap;
+}
+
+.task-board-badge-project {
+	cursor: pointer;
+	background: var(--interactive-accent);
+	color: var(--text-on-accent);
+}
+
+.task-board-badge-priority-high {
+	background: var(--color-red);
+	color: var(--text-on-accent);
+}
+
+.task-board-badge-priority-mid {
+	background: var(--color-orange);
+	color: var(--text-on-accent);
+}
+
+.task-board-badge-priority-low {
+	background: var(--background-modifier-border);
+	color: var(--text-muted);
+}
+
+.task-board-badge-completed {
+	background: var(--color-green);
+	color: var(--text-on-accent);
+}
+
+.task-board-badge-due-soon {
+	background: var(--color-orange);
+	color: var(--text-on-accent);
+}
+
+.task-board-badge-due-overdue {
+	background: var(--color-red);
+	color: var(--text-on-accent);
+}
+
+.task-board-card-text {
+	white-space: pre-wrap;
+	word-break: break-word;
+	margin-bottom: 6px;
+}
+
+.task-board-card-actions {
+	display: flex;
+	gap: 6px;
+	justify-content: flex-end;
+}
+
+.task-board-card-action {
+	font-size: 12px;
+	padding: 2px 6px;
+}
+
+.task-board-card-action-danger {
+	color: var(--text-error);
+}
+
+.task-inbox-container {
+	display: flex;
+	flex-direction: column;
+	gap: 6px;
+}
+
+.task-inbox-load-button {
+	align-self: flex-start;
+}
+
+.task-inbox-list {
+	display: flex;
+	flex-direction: column;
+	gap: 6px;
+}
+
+.task-inbox-empty {
+	color: var(--text-muted);
+	font-size: 12px;
+	padding: 4px 0;
+}
+
+.task-inbox-card {
+	cursor: grab;
+}
+
+.task-inbox-card-top {
+	display: flex;
+	align-items: flex-start;
+	gap: 6px;
+}
+
+.task-inbox-card-checkbox {
+	margin-top: 2px;
+	flex-shrink: 0;
+}
+
+.task-inbox-card-top .task-board-card-text {
+	margin-bottom: 0;
+	flex: 1;
+}
+
+.task-inbox-subtask-hint {
+	font-size: 11px;
+	color: var(--text-muted);
+	margin-top: 4px;
+}
+
+.task-board-subtasks {
+	margin-bottom: 6px;
+}
+
+/* 小チケットは <details> で折りたたむ。畳んだ状態でも進捗バーだけは見える。 */
+.task-board-subtasks-details {
+	margin-bottom: 4px;
+}
+
+.task-board-subtasks-progress {
+	font-size: 11px;
+	color: var(--text-muted);
+	margin-bottom: 4px;
+	list-style: none;
+	cursor: pointer;
+	user-select: none;
+}
+
+.task-board-subtasks-progress::-webkit-details-marker {
+	display: none;
+}
+
+.task-board-subtasks-progress::before {
+	content: '\25B8';
+	display: inline-block;
+	width: 10px;
+}
+
+.task-board-subtasks-details[open] > .task-board-subtasks-progress::before {
+	content: '\25BE';
+}
+
+.task-board-subtasks-bar {
+	height: 4px;
+	border-radius: 2px;
+	background: var(--background-modifier-border);
+	overflow: hidden;
+	margin-top: 2px;
+}
+
+.task-board-subtasks-bar-fill {
+	height: 100%;
+	background: var(--interactive-accent);
+}
+
+.task-board-subtask-row {
+	display: flex;
+	align-items: center;
+	gap: 6px;
+	padding: 2px 0;
+}
+
+.task-board-subtask-checkbox {
+	flex-shrink: 0;
+}
+
+.task-board-subtask-text {
+	flex: 1;
+	font-size: 12px;
+	word-break: break-word;
+}
+
+.task-board-subtask-text.is-done {
+	color: var(--text-muted);
+	text-decoration: line-through;
+}
+
+.task-board-subtask-edit {
+	flex-shrink: 0;
+	font-size: 11px;
+	line-height: 1;
+	padding: 0 4px;
+	color: var(--text-muted);
+}
+
+.task-board-subtask-remove {
+	flex-shrink: 0;
+	font-size: 12px;
+	line-height: 1;
+	padding: 0 4px;
+	color: var(--text-muted);
+}
+
+.task-board-subtask-add {
+	font-size: 11px;
+	padding: 2px 6px;
+	margin-top: 2px;
+}
+
+.task-board-add-button {
+	margin-top: 8px;
+	width: 100%;
+}
+
+.task-board-modal-input {
+	width: 100%;
+}
+
+.task-board-modal-buttons {
+	display: flex;
+	justify-content: flex-end;
+	gap: 8px;
+	margin-top: 12px;
+}
+
+.task-today-container {
+	display: flex;
+	flex-direction: column;
+	gap: 12px;
+	min-height: 24px;
+}
+
+.task-today-group {
+	background: var(--background-secondary);
+	border-radius: 8px;
+	padding: 8px;
+}
+
+.task-today-group.is-drag-over {
+	outline: 2px dashed var(--interactive-accent);
+}
+
+.task-today-group-header {
+	font-weight: 600;
+	margin-bottom: 6px;
+	padding: 0 4px;
+}
+
+.task-today-group-header.is-clickable {
+	cursor: pointer;
+}
+
+.task-today-group-header.is-clickable:hover {
+	text-decoration: underline;
+}
+
+.task-today-cards {
+	display: flex;
+	flex-direction: column;
+	gap: 6px;
+}
+
+.task-today-card {
+	cursor: grab;
+}
+
+.task-board-badge-status-todo {
+	background: var(--background-modifier-border);
+	color: var(--text-muted);
+}
+
+.task-board-badge-status-doing {
+	background: var(--interactive-accent);
+	color: var(--text-on-accent);
+}
+
+.task-board-badge-status-hold {
+	background: var(--color-purple);
+	color: var(--text-on-accent);
+}
+
+.task-share-container {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+}
+
+.task-share-status {
+	font-size: 12px;
+	color: var(--text-muted);
+}
+
+/* 縦方向はチャートが主役。ツールバーと下部パネルは自分の高さぶんだけ取り、
+   残りをすべて .gantt-scroll に渡してチャートが最大面積になるようにする。 */
+.gantt-container {
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+	padding: 12px;
+	height: 100%;
+	min-height: 0;
+	overflow: hidden;
+}
+
+.gantt-toolbar {
+	display: flex;
+	flex: 0 0 auto;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 12px;
+	font-size: 13px;
+	color: var(--text-muted);
+}
+
+.gantt-toggle-completed {
+	display: flex;
+	align-items: center;
+	gap: 4px;
+	cursor: pointer;
+}
+
+.gantt-project-select {
+	font-size: 12px;
+	max-width: 200px;
+}
+
+.gantt-scroll {
+	flex: 1 1 auto;
+	min-height: 120px;
+	overflow: auto;
+	border: 1px solid var(--background-modifier-border);
+	border-radius: 8px;
+}
+
+.gantt-grid {
+	position: relative;
+	width: max-content;
+	min-width: 100%;
+}
+
+.gantt-header-row,
+.gantt-row {
+	display: flex;
+	border-bottom: 1px solid var(--background-modifier-border);
+}
+
+/* チャート領域が縦にもスクロールするようになったので、日付ヘッダは上に固定する。 */
+.gantt-header-row {
+	position: sticky;
+	top: 0;
+	z-index: 4;
+	background: var(--background-primary);
+}
+
+.gantt-header-row .gantt-row-label {
+	z-index: 5;
+}
+
+/* 小チケット行は親タスク行と同じ塊に入れ、キャレットで開閉する。 */
+.gantt-task-group.is-collapsed .gantt-subtask-rows {
+	display: none;
+}
+
+.gantt-row-label.is-parent {
+	display: flex;
+	align-items: center;
+	gap: 3px;
+}
+
+.gantt-row-caret {
+	flex: 0 0 auto;
+	font-size: 10px;
+	color: var(--text-muted);
+	cursor: pointer;
+}
+
+.gantt-row-caret:hover {
+	color: var(--text-normal);
+}
+
+.gantt-row-title {
+	min-width: 0;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.gantt-row-label {
+	flex: 0 0 220px;
+	width: 220px;
+	box-sizing: border-box;
+	padding: 6px 8px;
+	font-size: 12px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	cursor: pointer;
+	background: var(--background-primary);
+	position: sticky;
+	left: 0;
+	z-index: 2;
+}
+
+.gantt-header-days {
+	display: flex;
+}
+
+.gantt-header-cell {
+	flex: 0 0 28px;
+	width: 28px;
+	box-sizing: border-box;
+	text-align: center;
+	font-size: 10px;
+	padding: 4px 0;
+	color: var(--text-muted);
+}
+
+.gantt-header-cell.is-weekend,
+.gantt-header-cell.is-holiday {
+	background: var(--background-secondary);
+}
+
+.gantt-header-cell.is-today {
+	background: var(--interactive-accent);
+	color: var(--text-on-accent);
+	border-radius: 4px;
+}
+
+.gantt-header-weekday {
+	font-size: 9px;
+}
+
+.gantt-swimlane-header {
+	font-weight: 600;
+	padding: 6px 8px;
+	background: var(--background-secondary);
+}
+
+.gantt-lane {
+	position: relative;
+	height: 36px;
+	flex: 0 0 auto;
+}
+
+.gantt-bar {
+	position: absolute;
+	top: 4px;
+	height: 16px;
+	background: var(--interactive-accent);
+	color: var(--text-on-accent);
+	border-radius: 4px;
+	font-size: 10px;
+	line-height: 16px;
+	padding: 0 4px;
+	box-sizing: border-box;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	cursor: pointer;
+}
+
+/* カンバンの「TODO」列（backlog）はまだ受信箱にあるタスク。点線＋淡い色で
+   スケジュール済みのバーと区別する。 */
+.gantt-bar.is-backlog {
+	background: var(--background-modifier-hover);
+	color: var(--text-muted);
+	border: 1px dashed var(--text-faint);
+}
+
+.gantt-marker.is-backlog {
+	background: var(--text-faint);
+}
+
+.gantt-row.is-backlog .gantt-row-title {
+	color: var(--text-muted);
+}
+
+.gantt-bar.is-overdue {
+	background: var(--color-red);
+}
+
+.gantt-bar-actual {
+	position: absolute;
+	top: 22px;
+	height: 6px;
+	background: var(--text-muted);
+	opacity: 0.6;
+	border-radius: 3px;
+}
+
+.gantt-marker {
+	position: absolute;
+	top: 10px;
+	width: 8px;
+	height: 8px;
+	border-radius: 50%;
+	background: var(--color-orange);
+	cursor: pointer;
+}
+
+.gantt-row.is-subtask {
+	background: var(--background-primary-alt);
+}
+
+.gantt-row-label.is-subtask {
+	padding-left: 20px;
+	font-size: 11px;
+	color: var(--text-muted);
+	background: var(--background-primary-alt);
+}
+
+.gantt-row-label.is-done {
+	text-decoration: line-through;
+	opacity: 0.6;
+}
+
+.gantt-lane.is-subtask {
+	height: 24px;
+}
+
+.gantt-bar.is-subtask {
+	top: 6px;
+	height: 12px;
+	line-height: 12px;
+	font-size: 9px;
+	opacity: 0.75;
+}
+
+.gantt-bar.is-subtask.is-done {
+	background: var(--text-muted);
+}
+
+.gantt-marker.is-subtask {
+	top: 8px;
+	width: 6px;
+	height: 6px;
+}
+
+.gantt-lane-hint {
+	font-size: 10px;
+	line-height: 24px;
+	padding-left: 4px;
+	color: var(--text-faint);
+	cursor: pointer;
+}
+
+.gantt-today-line {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	width: 2px;
+	background: var(--color-red);
+	pointer-events: none;
+	z-index: 3;
+}
+
+.gantt-empty {
+	padding: 12px;
+	color: var(--text-muted);
+	font-size: 12px;
+}
+
+.gantt-panel {
+	flex: 0 0 auto;
+	border: 1px solid var(--background-modifier-border);
+	border-radius: 8px;
+	background: var(--background-primary);
+}
+
+.gantt-panel-summary {
+	list-style: none;
+	cursor: pointer;
+	padding: 6px 12px;
+	font-size: 13px;
+	font-weight: 600;
+	user-select: none;
+}
+
+.gantt-panel-summary::-webkit-details-marker {
+	display: none;
+}
+
+.gantt-panel-summary::before {
+	content: '\25B8';
+	display: inline-block;
+	width: 14px;
+	color: var(--text-muted);
+}
+
+.gantt-panel[open] > .gantt-panel-summary::before {
+	content: '\25BE';
+}
+
+/* 開いたときの高さは固定。項目が増えてもチャートの領域を奪わず、
+   はみ出した分はパネル内のスクロールバーで見る。 */
+.gantt-panel-body {
+	display: flex;
+	flex-direction: column;
+	max-height: 140px;
+	overflow-y: auto;
+	padding: 0 12px 8px 12px;
+}
+
+.gantt-unscheduled-item,
+.gantt-risk-item {
+	font-size: 12px;
+	padding: 4px 0;
+	border-top: 1px solid var(--background-modifier-border);
+	cursor: pointer;
+}
+
+.gantt-unscheduled-item:first-child,
+.gantt-risk-item:first-child {
+	border-top: none;
+}
+
+.gantt-risk-empty {
+	font-size: 12px;
+	color: var(--text-muted);
+}
+
+.gantt-risk-item.is-warning {
+	color: var(--color-orange);
+}
+
+.gantt-risk-item.is-danger {
+	color: var(--color-red);
+}
+
+.gantt-risk-item.is-clickable:hover,
+.gantt-unscheduled-item:hover {
+	text-decoration: underline;
+}
+
+/* task-hours / task-capacity: 元dataviewjsブロックの置き換え。テーブルはObsidianの
+   標準テーブルに近い見た目にする（他のdataview/dataviewjs出力と違和感が出ないように）。 */
+.task-hours-container,
+.task-capacity-container {
+	font-size: 13px;
+}
+
+.task-hours-table,
+.task-capacity-table {
+	width: 100%;
+	border-collapse: collapse;
+	margin: 4px 0 8px 0;
+}
+
+.task-hours-table th,
+.task-hours-table td,
+.task-capacity-table th,
+.task-capacity-table td {
+	border: 1px solid var(--background-modifier-border);
+	padding: 4px 8px;
+	text-align: left;
+}
+
+.task-hours-total {
+	font-weight: 600;
+	margin: 4px 0;
+}
+
+.task-capacity-over {
+	color: var(--text-error);
+	font-weight: 600;
+}
